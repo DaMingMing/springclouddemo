@@ -24,7 +24,7 @@ spring:
 
 # port
 server:
-  port: 8768
+  port: 8769
 
 management:
   security:
