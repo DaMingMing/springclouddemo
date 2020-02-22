@@ -1,0 +1,27 @@
+server:
+  port: 9998
+security:
+  user:
+    name: admin
+    password: 123456
+management:
+  security:
+    enabled: false #关闭安全验证
+
+spring:
+  boot:
+    admin:
+      routes:
+        endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream,activiti
+      turbine:
+        clusters: default
+        location: monitor-service   #配置turbinef服务名
+
+#eureka:
+#  instance:
+#    metadata-map:
+#      user.name: admin
+#      user.password: 123456
+
+logging:
+  file: "logs/admin-service-pro.log"  #日志输出路径
