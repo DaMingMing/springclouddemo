@@ -3,8 +3,11 @@ spring:
     name: gateway-service
   cloud:
     config:
-      uri: http://localhost:8769
-      fail-fast: true
+      #uri: http://localhost:8769   #向URI http://localhost:8769获取配置文件  (可用于单个配置中心)
+      fail-fast: true  #没有读取成功则快读失败
+      discovery:
+        enabled: true # 开启配置信息发现。
+        service-id: config-server  #指定配置中心的service-id，便于扩展为高可用配置集群
   profiles:
     active: pro
 
