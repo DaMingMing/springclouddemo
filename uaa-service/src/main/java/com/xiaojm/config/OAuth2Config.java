@@ -37,6 +37,10 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     //配置授权token节点跟token服务,配置tokenStore和authenticationManager
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+        //tokenStore有三种策略
+        //1、InMemoryTokenStore,token存在内存中，仅限于资源服务跟授权服务器为同个服务
+        //2、JdbcTokenStore,存在数据库
+        //3、JwtTokenStore，采用JWT形式，不做任何存储，因为JWT本身包含用户信息
         endpoints.tokenStore(tokenStore()).tokenEnhancer(jwtTokenEnhancer()).authenticationManager(authenticationManager);
     }
 
