@@ -57,7 +57,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
         //2、JdbcTokenStore,存在数据库
         //3、JwtTokenStore，采用JWT形式，不做任何存储，因为JWT本身包含用户信息
         endpoints.tokenStore(tokenStore()).tokenEnhancer(jwtTokenEnhancer()).authenticationManager(authenticationManager)
-        .userDetailsService(userServiceDetail);   //设置此参数方可请求/oauth/check_token 此接口
+        .userDetailsService(userServiceDetail);   //设置此参数方可请求刷新token请求（/oauth/token），重新更新access_token
     }
 
     //这个bean来源于WebSecurityConfigurerAdapter，只有配置了这个bean才会开启密码类型验证
